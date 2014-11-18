@@ -1,9 +1,9 @@
 <html>
 <head>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css' />
-    <!--link href='raleway.css' rel='stylesheet' type='text/css'-->
-    <link href='poster5.css' rel='stylesheet' type='text/css'>
+    <title>SfN 2014: Cipollini & Cottrell</title>
     <link href='jquery-ui.css' rel='stylesheet' type='text/css'>
+    <link href='stuff.css' rel='stylesheet' type='text/css'>
+    <link href='poster5.css' rel='stylesheet' type='text/css'>
 
     <script type="text/javascript" src="jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="jquery-ui.js"></script>
@@ -13,6 +13,7 @@
 
 <div id="poster">
 
+    <!-- title bar -->
     <div class="poster-title"
         data-logo="logo.png"
         data-qrcode="qrcode.ringo.png"
@@ -23,19 +24,135 @@
     </div>
 
     <div id="section-summary-left" class="section-buttons section-buttons-expanded">
+
+        <!-- box 1: the concept -->
         <div class="section section-summary"
             data-number="1"
-            data-title="Are human brains lateralized because they are large?"
-            data-blurb="The human brain is highly lateralized and somehat large.  Are the to connected?">
-            <div class="content-pane" style="background-color: white">1</div>
+            data-title="Are large brains lateralized because long delays cause hemispheric independence?"
+            data-short-blurb="Large brains have longer delays between the hemispheres.
+                Does this bias circuits to use shorter, intra-hemispheric axons?"
+            data-blurb="
+                <div style='width: 50%; float: left'>
+                    Large brains have longer delays between the hemispheres.
+                    Does this bias circuits to use shorter, intra-hemispheric axons?
+                </div>
+                <div style='float: right;'>
+                    <img width=50 src='figs/brain.jpg' style='float: left; margin-right: 15px;'></img>
+                    <div style='float: left'>
+                        Small brain,<br/>short delay.
+                        <br/>
+                        <br/>
+                        <br/>
+                        Large brain, <br/>long delay.
+                    </div>
+                    <img width=125 src='figs/brain.jpg' style='margin-left: 10px;'></img>
+                </div>">
+            <div class="content-pane" style="">
+                <!-- model info -->
+                <div id="ringo-model" style="float: left">
+                    <img src="figs/Ringo_model.png" width=550></img>
+                    <br/><div style="width:100%; font-size: 14px; text-align: center">Adapted from Ringo et. al (1994)</div>
+                </div>
+                <div style="margin-left: 25px; float: left; width:500px;">
+
+                    <p>
+                    Model:
+                    <ul>
+                        <li>Model runs in time
+                        <li>Each connection has a delay
+                            <ul>
+                                <li>Interhemispheric: 1 or 10
+                                <li>All others: 1
+                            </ul>
+                        <li>Model runs for a fixed number of time steps.
+                        <li>Model is trained on a paired associates task: given some input, produce the output.
+                    </ul>
+                    </p>
+
+                    <p>
+                        <br/>
+                        Training &amp; Analysis:
+                        <ul>
+                            <li>Train network to 100% performance.
+                            <li>Remove interhemispheric connections.
+                                <ul><li>Network with more error uses those connections more!</ul>
+                            <li>Train models with many different total time steps
+                        </ul>
+                    </p>
+                </div>
+
+            </div>
         </div>
 
+        <!-- box 2: ringo results -->
         <div class="section section-summary"
             data-number="2"
-            data-title="...due to:<br/>Fiber count? We say, no.<br/>Delay? We say, no."
-            data-blurb="We show very simply: that's not correct.<br/><!--img src='q1.png'></img-->
-            The model results have been completely misunderstood.">
-            <div class="content-pane" style="background-color: #fbf; ">
+            data-title="No; long delays do not reduce communication."
+            data-short-blurb="Reanalyzing a rate-coded model (Ringo et al., 1994), we only see a short delay to the onset of communication."
+            data-blurb="Reanalyzing a well-cited rate-coded model (Ringo et al., 1994),
+                we see only a short delay to the onset of communication,
+                with many potential mechanisms to overcome this.
+                <br/><br/>One of these mechanisms is temporal predictability.
+            ">
+            <div class="content-pane" style="">
+
+                <!-- model behavioral result -->
+                <div style="float: left; width: 520px; height: 420px; background-color: white; ">
+                    <div style="position: relative; padding: 25px; width: 550px; height: 330px; left: -40px;">
+                        <img class="abs" src="figs/Ringo-results-1.png" style="position: absolute; top: 0px; left: 0px;"></img>
+                        <img class="abs" id="ringo-results-moving" src="figs/Ringo-results-2.png" style="position: absolute; top: 110px; left: 116px;"></img>
+                    </div>
+                    <div style="float: none; text-align:center">
+                        Network run time
+                    </div>
+                </div>
+                <div style="float: left; width: 50%; margin-left: 25px;">
+                    <ul>
+                    <li>Network with delay=10 (circles) has little error at early time steps,
+                    then drops off.
+                    <li>Network with delay=1 (triangles) has error early,
+                    then drops off.
+                    </ul>
+                    <p>
+                    Ringo et al. (1994) and others take this as evidence of less
+                    interhemispheric communication, requiring "multiple passes"
+                    to overcome.
+                    </p>
+                    <p>
+                    We know there will be an onset difference of 9 time-steps.
+                    What remains after we account for that?
+                    </p>
+                        <a id="animate-ringo" href="#">shifted</a>
+                        <a id="unanimate-ringo" href="#">original</a>
+                </div>
+
+                <div id="no-diff" style="display: none; width:100%;">
+                    <div style="width: 100%; font-size: 36px; color: red; font-weight: bold; text-align: center">
+                    THERE IS NO DIFFERENCE BESIDES THE ONSET DELAY!
+                    </div>
+
+                    <div style=" padding: 50px 0px 270px 200px;  width:100%;">
+                        Even this onset delay is overstated by the model:
+                        <ul>
+                            <li>There are many long intrahemispheric delays
+                            <li>Difference in delays are extremely short (5-20ms)
+                            <li>Temporal correlations allow hemispheres to predict each others activity.
+                            <li>There is a distribution of delays!
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- model movie for comparison -->
+                <div id="ringo-compare-movie" style="width: 100%; padding: 350px 0px 270px 0px;">
+                    <div id="ringo-cc-movie" style="width: 50%">
+                        <img src="figs/cc/1.png" width=500 style=""></img>
+                        <div style="width:100%; text-align: center">Original network</div>
+                    </div>
+                    <div id="ringo-cc-no-movie" style="width: 45%; margin-left: 25px">
+                        <img src="figs/cc-no/1.png" width=500 style=""></img>
+                        <div style="width:100%; text-align: center">Network without interhemispheric connections</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -45,24 +162,123 @@
     </div>
 
     <div id="section-summary-right" class="section-buttons section-buttons-expanded">
+
+        <!--  -->
         <div class="section section-summary"
             data-number="3"
-            data-title="...due to:<br/>Human-specific development?<br/>We say, <b>YES.</b>"
-            data-blurb="Lateralization and interhemispheric communication likely interact over development.<br/>
-            We argue for an effect of conduction delay *reliability*--likely strongest in humans.">
-            <div class="content-pane" style="background-color: #fdf">3</div>
+            data-title="<b><i>Unreliable</i></b> delays likely exist during development.</i></b>"
+            data-blurb="Most axons in early development are thin and unmyelinated fibers.
+                These have been shown to have unreliable delays (Faisal et al., 2008).">
+            <div class="content-pane" style="width: 100%; float: left;">
+                <div style="width: 50%">
+                    <img width=500 src="figs/berbel_innocenti_histograms_marked_box.png" />
+                    <div style="width:100%; font-size: 14px; text-align: center">Adapted from Berbel &amp; Innocenti (1988)</div>
+                </div>
+
+                <div style="float: left; width: 45%; margin-left: 25px; height:500px;">
+                    At birth, most axons are thin and unmyelinated (bottom plot).
+                    <ul>
+                    <li>Axons with diameter < 0.5um have unreliable conduction delays,
+                        due to a number of noise sources (Faisal et al., 2008).</li>
+                    <li>Longer axons have more variability.</li>
+                    </ul>
+                    Over development, axons become thicker and myelinate.
+                    <ul>
+                    <li>Early in development, longer axons should have more variability.</li>
+                    <li>Over development, variability should decrease and disappear.</li>
+                    </ul>
+                </div>
+
+                <div style="width: 100%; font-size: 36px; font-weight: bold; text-align: center; padding-top:100px;">
+                    What is the effect of length-dependent delay variability<br/>over development?
+                </div>
+            </div>
         </div>
 
+        <!--  -->
         <div class="section section-summary"
             data-number="4"
-            data-title="...and we have a model."
-            data-blurb="We use a similar model to show that this developmental change to axon physiology
-                could potentially explain changes from local to more long-distance circuits.">
-            <div class="content-pane" style="background-color: #f9f">4</div>
+            data-title="In our model, unreliable delays reduce connectivity."
+            data-blurb="Using a similar model, we show that changes in delay reliability
+                can explain changes in local to long distance functional circuits.">
+            <div class="content-pane" style="position: relative;">
+                <div>
+                    <div id="model" style="">
+                        <img width=500 src="figs/le_model.png"></img>
+                    </div>
+
+                    <div style="margin-left: 25px; float: left; width:500px;">
+
+                        <p>
+                        Same as Ringo model, but:
+                        <ul>
+                            <li>"Split" inputs and outputs (for more nuanced testing)
+                            <li>Interhemispheric delay is fixed at 10.
+                            <li>Total number of time steps is fixed at 35.
+                            <li>Noise is added such that interhemispheric connections have 1% noise.
+                        </ul>
+                        </p>
+
+                        <p>
+                        Run three experiments:
+                        <ul>
+                            <li><a href="#expt1">Expt 1</a>: Show that, over model training ("development") with constant noise, that noise reduces long-distance communication.
+                            <li><a href="#expt2">Expt 2</a>: Show that, over model training ("development") with decreasing noise, that long-distance communication develops.
+                            <li><a href="#expt3">Expt 3</a>: Show that the reduction of communication is more than what is due to the onset delay.
+                        </ul>
+                    </div>
+                </div>
+
+                <a name="expt1">
+                <div id="expt1" style="width: 100%; padding: 200px 0px 0px 0px;">
+                    <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 25px;">
+                    Expt 1: Constant Noise
+                    </div>
+                    <img width=900 src="figs/expt1_inter_matters.png"></img>
+                    <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-top: 25px;">
+                        foo
+                    </div>
+                </div>
+
+                <a name="expt2">
+                <div style="width: 900px; padding: 500px 0px 0px 0px;">
+                    <img width=500 src="figs/inter_vs_intra_patterns.png"></img>
+                </div>
+
+                <div id="development_results">
+                    <img width=500 src="figs/expt2_developmental_results.png"></img>
+                </div>
+
+                <div id="expt3" style="padding-bottom: 200px;">
+                <a name="expt3">
+                    <img width=500 src="figs/expt3_all_results.png"></img>
+                </div>
+            </div>
         </div>
     </div>
-</div>
 
+
+    <!-- footer -->
+    <div class="poster-footer">
+        <div style="width:50%; height: 100%; float: left;">
+            <div style="float: left; margin-right: 25px; height: 100%; left: -50px">References:</div>
+            <div style="font-size: 18px">
+                    <li>Berbel, &amp; Innocenti. (1988). The devel. of the corpus callosum in cats. J of comparative neurol., 276(1).</li>
+                    <li>Faisal et al. (2008). Noise in the nervous system. Nature Rev. Neuro., 9(4).</li>
+                    <li>Lewis &amp; Elman. (2008). Growth-related neural reorg. &amp; the autism phenotype. Devel. Science, 11(1).</li>
+                    <li>Ringo et al. (1994). Time is of the essence. Cereb. Cortex, 4(4).</li>
+            </div>
+        </div>
+        <div style="width:50%; float: left;">
+            <div>
+            <div style="float: left; position: relative; left: -10px; height: 100%;">Conclusions:</div>
+            <div style="font-size: 24px;">
+                    <li>Delay magnitude has little effect on rate-coded networks; <i>unreliable</i> delays matter.</li>
+                    <li>In development, axons are thin &amp; unmyelinated, and likely have unreliable delays.</li>
+                    <li>Our model suggests an early bias for using shorter axons with more reliable delays.</li>
+            </div>
+        </div>
+    </div>
 
 </div>
 </body>

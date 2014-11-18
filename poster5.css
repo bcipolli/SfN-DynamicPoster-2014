@@ -1,8 +1,8 @@
 /* poster body */
 body {
-    font-family: "Raleway";
     x-padding: 0;
     margin: 0;
+    font-size: 24px;
 }
 #poster, #poster {
     width: 1920px;
@@ -16,10 +16,11 @@ body {
 .poster-title {
     padding: 10px 10px 0px 10px;
     width: 100%;
-    height: 205px;
+    height: 185px;
     background-color: #acf;
     box-sizing: border-box;
     text-align: center;
+    border-bottom: 5px dotted black;
 }
 
 .poster-title .content {
@@ -30,11 +31,11 @@ body {
 }
 
 .poster-title .content .title {
-    font-size: 39px;
+    font-size: 40px;
     float: left;
     box-sizing: border-box;
     text-align: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .poster-title .content .authors {
@@ -43,20 +44,20 @@ body {
 
 .poster-title .spacer {
     width: 400px;
-    height: 195px; /* why? */
+    height: 170px; /* why? */
     float: left;
     box-sizing: border-box;
 }
 
 .poster-title .logo img {
     max-width: 400px;
-    max-height: 180px;
+    max-height: 160px;
     float: left;
 }
 
 .poster-title .qrcode img {
-    max-width: 150px;
-    max-height: 150px;
+    max-width: 130px;
+    max-height: 130px;
     box-sizing: border-box;
     margin: 0px auto 0px auto;
 }
@@ -83,7 +84,7 @@ body {
 
 #poster .section-button {
     width: 100%;
-    height: 450px;
+    height: 400px;
     margin: 0px;
     box-sizing: border-box;
     display: block;
@@ -96,12 +97,12 @@ body {
     position: relative;
     left: 20px;
     top: 10px;
-    font-size: 18px;
+    font-size: 24px;
     float: left;
 }
 
 #poster .section .title {
-    font-size: 32px;
+    font-size: 34px;
     text-align: center;
     font-weight: bold;
     width: 100%;
@@ -109,16 +110,24 @@ body {
 }
 
 #poster .section .blurb {
-    padding: 25px;
+    padding: 25px 50px 25px 50px;
     box-sizing: border-box;
 }
 
+#poster .section-button .blurb {
+    padding: 20px;
+}
 
+#poster .section-button .title {
+    font-size: 28px;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
 
 /* poster main content */
 .section-buttons {
-    width: 21%;
-    height: 865px;
+    width: 15%;
+    height: 795px;
     float: left;
     box-sizing: border-box;
 }
@@ -132,17 +141,23 @@ body {
 }
 
 .section-button {
-    background-color: #8af;
-    border: 5px solid #8af;
+    background-color: #acf;
+    border: 5px solid #acf; /*8af*/
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .main-content {
-    width: 58%;
-    height: 865px;
+    width: 70%;
     float: left;
-    padding: 50px;
+    padding: 50px 100px 50px 100px;
+    height: 795px;
     box-sizing: border-box;
 }
+.short-blurb {
+    display: none;
+}
+
 .main-content-collapsed {
     width: 0%;
     padding: 0px;
@@ -174,4 +189,26 @@ body {
 
 .section-details {
     display: none;
+}
+
+.content-pane {
+    height: 725px;
+    overflow: scroll;
+}
+.content-pane div {
+    float: left;
+}
+
+
+/* poster footer */
+.poster-footer {
+    background-color: #acf;
+    width: 100%;
+    height: 105px;
+    padding: 5px;
+    float: left;
+    box-sizing: border-box;
+    display: none;
+    border-top: 5px dotted black;
+    z-index: -1;
 }

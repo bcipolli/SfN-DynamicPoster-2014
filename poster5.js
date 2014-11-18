@@ -39,7 +39,7 @@ $(function() {
         var details_div_id = "details" + idx;
 
         section_div.data["details_div_id"] = details_div_id
-        main_div.append("<div id='" + details_div_id + "' class='section-details'>details</div>");
+        main_div.append("<div id='" + details_div_id + "' class='section-details'></div>");
         var details_div = main_div.find('#' + details_div_id);
         details_div.append(children);
         //section_div.remove(children);
@@ -50,14 +50,15 @@ $(function() {
         if (d["image"]) {
             section_div.append("<div class='image'><img src='" + d["image"] + "' /></div>");
         }
+        section_div.append("<div class='blurb short-blurb'>" + (d["shortBlurb"] ? d["shortBlurb"] : d["blurb"]) + "</div>");
         section_div.append("<div class='blurb'>" + d["blurb"] + "</div>");
 
 
         // Show the relevant details, and make the buttons active.
         $(this).on('click', function() {
             $('.section-details').hide();
-            $("#" + details_div_id).show();
-            console.log("#" + details_div_id);
+            $("#" + details_div_id).show(500);
+            location.hash = "#b" + d['number'];
         });
     });
 
@@ -78,7 +79,9 @@ $(function() {
         $('#main-content').toggleClass('main-content-collapsed', false, ad_slow);
         $('.section-buttons').toggleClass('section-buttons-expanded', false, ad_slow);
         $('.section').toggleClass('section-button', true, ad_slow);
-        $('.section').find("img").hide(); // hide all images
+        $('.section').find(".blurb").hide();
+        $('.section').find(".short-blurb").show();
+        $('.poster-footer').show(ad_slow, 'linear');
     });
 
     $('.section').on('click', function(e) {
@@ -109,6 +112,37 @@ var abc;
 /* Now, parse out the bookmark */
 $(function() {
     if (window.location.hash && window.location.hash.length > 1 && window.location.hash.substr(0,2) == "#b") {
-        $("#section" + window.location.hash.substr(2)).click()
+        $("#section" + window.location.hash.substr(2)).trigger("click");
     }
 });
+
+
+/* content pane 1: model with demo activation */
+$(function() {
+    var ii = 0;
+    $('#ringo-model').on('click', function(e, k) {
+        ii = (ii < 25) ? ii + 1 : 0;
+        $(this).find('img').attr('src', 'figs/cc/' + ii + '.png');
+    });
+});
+
+
+/* content pane 2: animations */
+$(function() {
+    $('#animate-ringo').on('click', function(e) {
+        e.preventDefault();
+        $('#ringo-results-moving').animate({left: "171px"}, 1000, 'linear', function() { $('#no-diff').show();} );
+    });
+    $('#unanimate-ringo').on('click', function(e) {
+        e.preventDefault();
+        $('#ringo-results-moving').animate({left: "116px"}, 1000);
+    });
+
+    var ii = 1;
+    $('#ringo-compare-movie').on('click', function(e) {
+        ii = (ii < 25) ? ii + 1 : 1;
+        $(this).find('#ringo-cc-movie img').attr('src', 'figs/cc/' + ii + '.png');
+        $(this).find('#ringo-cc-no-movie img').attr('src', 'figs/cc-no/' + ii + '.png');
+    });
+});
+
