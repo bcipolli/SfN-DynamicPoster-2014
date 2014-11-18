@@ -31,7 +31,7 @@ $(function() {
         //data-blurb="The human brain is highly lateralized and somehat large.  Are the to connected?"
         var section_div = $(this);
         var d = section_div.data();
-        section_div.attr("id", "section" + idx);
+        section_div.attr("id", "section" + (idx+1));
 
         // Move children to the main content.
         var main_div = $('#main-content');
@@ -107,15 +107,6 @@ $(function() {
     });
 });
 
-var abc;
-
-/* Now, parse out the bookmark */
-$(function() {
-    if (window.location.hash && window.location.hash.length > 1 && window.location.hash.substr(0,2) == "#b") {
-        $("#section" + window.location.hash.substr(2)).trigger("click");
-    }
-});
-
 
 /* content pane 1: model with demo activation */
 $(function() {
@@ -146,3 +137,13 @@ $(function() {
     });
 });
 
+
+/* Now, parse out the bookmark */
+$(function() {
+    if (window.location.hash && window.location.hash.length > 1 && window.location.hash.substr(0,2) == "#b") {
+        var sectionID = "#section" + window.location.hash.substr(2);
+        console.log(sectionID);
+
+        $(sectionID).click();//("click");
+    }
+});

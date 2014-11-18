@@ -56,7 +56,7 @@
                 <div style="margin-left: 25px; float: left; width:500px;">
 
                     <p>
-                    Model:
+                    <b>Model:</b>
                     <ul>
                         <li>Model runs in time
                         <li>Each connection has a delay
@@ -71,7 +71,7 @@
 
                     <p>
                         <br/>
-                        Training &amp; Analysis:
+                        <b>Training &amp; Analysis:</b>
                         <ul>
                             <li>Train network to 100% performance.
                             <li>Remove interhemispheric connections.
@@ -95,6 +95,9 @@
                 <br/><br/>One of these mechanisms is temporal predictability.
             ">
             <div class="content-pane" style="">
+                <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 50px;">
+                    Model Results
+                </div>
 
                 <!-- model behavioral result -->
                 <div style="float: left; width: 520px; height: 420px; background-color: white; ">
@@ -119,15 +122,15 @@
                     to overcome.
                     </p>
                     <p>
-                    We know there will be an onset difference of 9 time-steps.
-                    What remains after we account for that?
+                    <b>We know there will be an onset difference of 9 time-steps.
+                    What remains after we account for that?</b>
                     </p>
                         <a id="animate-ringo" href="#">shifted</a>
                         <a id="unanimate-ringo" href="#">original</a>
                 </div>
 
                 <div id="no-diff" style="display: none; width:100%;">
-                    <div style="width: 100%; font-size: 36px; color: red; font-weight: bold; text-align: center">
+                    <div style="width: 100%; font-size: 36px; color: red; font-weight: bold; text-align: center; padding-top: 25px">
                     THERE IS NO DIFFERENCE BESIDES THE ONSET DELAY!
                     </div>
 
@@ -170,6 +173,10 @@
             data-blurb="Most axons in early development are thin and unmyelinated fibers.
                 These have been shown to have unreliable delays (Faisal et al., 2008).">
             <div class="content-pane" style="width: 100%; float: left;">
+                <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 50px;">
+                    Prediction seems to matter.
+                </div>
+
                 <div style="width: 50%">
                     <img width=500 src="figs/berbel_innocenti_histograms_marked_box.png" />
                     <div style="width:100%; font-size: 14px; text-align: center">Adapted from Berbel &amp; Innocenti (1988)</div>
@@ -210,7 +217,7 @@
                     <div style="margin-left: 25px; float: left; width:500px;">
 
                         <p>
-                        Same as Ringo model, but:
+                        <b>Same as Ringo model, but</b>:
                         <ul>
                             <li>"Split" inputs and outputs (for more nuanced testing)
                             <li>Interhemispheric delay is fixed at 10.
@@ -220,7 +227,7 @@
                         </p>
 
                         <p>
-                        Run three experiments:
+                        <b>Run three experiments</b>:
                         <ul>
                             <li><a href="#expt1">Expt 1</a>: Show that, over model training ("development") with constant noise, that noise reduces long-distance communication.
                             <li><a href="#expt2">Expt 2</a>: Show that, over model training ("development") with decreasing noise, that long-distance communication develops.
@@ -232,26 +239,68 @@
                 <a name="expt1">
                 <div id="expt1" style="width: 100%; padding: 200px 0px 0px 0px;">
                     <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 25px;">
-                    Expt 1: Constant Noise
+                        Expt 1: Constant Noise
                     </div>
-                    <img width=900 src="figs/expt1_inter_matters.png"></img>
-                    <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-top: 25px;">
-                        foo
+                    <img width=800 src="figs/expt1_inter_matters.png" style="display: block; margin:auto"></img>
+                    <div style="width: 100%; text-align: center; padding-top: 25px;">
+                        Over learning, the amount of lesion-induced error is less for the noise vs. no-noise
+                        condition, suggesting a bias for local (intrahemispheric) circuits
+                        over long-distance (interhemispheric) circuits.
                     </div>
                 </div>
 
                 <a name="expt2">
-                <div style="width: 900px; padding: 500px 0px 0px 0px;">
-                    <img width=500 src="figs/inter_vs_intra_patterns.png"></img>
+                <div style="width: 900px; padding: 200px 0px 0px 0px;">
+                    <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 25px;">
+                        Expt 2: Tapered Noise (simulating maturation)
+                    </div>
+                    <div style="width: 100%;">
+                        <table style="margin-left: 100px;">
+                            <tr>
+                                <td><img width=200 src="figs/expt2_noise_trajectory.png" style="display: block; margin:auto"></img></td>
+                                <td style="padding-left: 50px;"><img width=600 src="figs/expt2_developmental_results.png"></img></td>
+                            </tr>
+                            <tr>
+                                <td align=center>Noise reduces over training, roughly simulating axonal maturation.</td>
+                                <td  style="padding-left: 50px;"align=center>
+                    <div style="width: 100%; text-align: center; padding-top: 25px; font-size:24px;">
+                        Over learning, the difference in lesion-induced error between noise
+                        and no-noise conditions decreases, showing that an initial bias for
+                        local (intrahemispheric) circuits disappears.
+                    </div>
+                                                    </td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
 
-                <div id="development_results">
-                    <img width=500 src="figs/expt2_developmental_results.png"></img>
-                </div>
-
-                <div id="expt3" style="padding-bottom: 200px;">
                 <a name="expt3">
-                    <img width=500 src="figs/expt3_all_results.png"></img>
+                <div id="expt3" style="padding: 200px 0px 200px 0px;">
+                    <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 25px;">
+                        Expt 3: Analyzing communication
+                    </div>
+
+                    <div style="width:100%; display: block; padding: 0px 150px 0px 150px;    box-sizing: border-box;">
+                        <img width=500 src="figs/inter_vs_intra_patterns.png" style="display: block; margin:auto"></img>
+                        <ul>
+                        <li><b>intra</b>hemispheric patterns: a hemisphere's output can be made from its own input.
+                        <li><b>inter</b>hemispheric patterns: a hemisphere's output can be made only after knowing both hemisphere's inputs.
+                        </ul>
+                    </div>
+
+                    <div style="width:100%; padding-top: 25px;">
+                        <div style="width: 100%; text-align: center; font-size: 36px; font-weight: bold; padding-bottom: 25px;">
+                            Results
+                        </div>
+
+                        <img width=500 src="figs/expt3_all_results.png" style="display: block; margin:auto"></img>
+
+                        <div style="width: 100%; text-align: center; padding: 25px 150px 0px 150px;     box-sizing: border-box">
+                            There is an effect of delay onset for all conditions and patterns.
+                            In the noise condition, the inter- patterns show an additional effect
+                            of noise.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
