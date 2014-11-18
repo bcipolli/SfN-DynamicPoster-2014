@@ -1,0 +1,177 @@
+/* poster body */
+body {
+    font-family: "Raleway";
+    x-padding: 0;
+    margin: 0;
+}
+#poster, #poster {
+    width: 1920px;
+    height: 1080;
+    background-color: #ffe;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* poster title */
+.poster-title {
+    padding: 10px 10px 0px 10px;
+    width: 100%;
+    height: 205px;
+    background-color: #acf;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.poster-title .content {
+    width: 1100px;
+    float: left;
+    padding: 0px 5px 0px 5px;
+    box-sizing: border-box;
+}
+
+.poster-title .content .title {
+    font-size: 39px;
+    float: left;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.poster-title .content .authors {
+    font-size: 28px;
+}
+
+.poster-title .spacer {
+    width: 400px;
+    height: 195px; /* why? */
+    float: left;
+    box-sizing: border-box;
+}
+
+.poster-title .logo img {
+    max-width: 400px;
+    max-height: 180px;
+    float: left;
+}
+
+.poster-title .qrcode img {
+    max-width: 150px;
+    max-height: 150px;
+    box-sizing: border-box;
+    margin: 0px auto 0px auto;
+}
+
+.download-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+
+
+/* poster summary content */
+#poster .section {
+    width: 850px;
+    height: 325px;
+    padding: 0px;
+    margin: 60px 50px 80px 50px;
+    box-sizing: border-box;
+    overflow:hidden;
+    border-radius: 25px;
+    box-shadow: 20px 20px 10px #888888;
+}
+
+#poster .section-button {
+    width: 100%;
+    height: 450px;
+    margin: 0px;
+    box-sizing: border-box;
+    display: block;
+    overflow:hidden;
+    border-radius: 0px;
+    box-shadow: none;
+}
+
+#poster .section .number {
+    position: relative;
+    left: 20px;
+    top: 10px;
+    font-size: 18px;
+    float: left;
+}
+
+#poster .section .title {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+}
+
+#poster .section .blurb {
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+
+
+/* poster main content */
+.section-buttons {
+    width: 21%;
+    height: 865px;
+    float: left;
+    box-sizing: border-box;
+}
+
+.section-buttons-expanded {
+    width: 50%;
+}
+
+.section-buttons-expanded .section {
+    background-color: #8af;
+}
+
+.section-button {
+    background-color: #8af;
+    border: 5px solid #8af;
+}
+
+.main-content {
+    width: 58%;
+    height: 865px;
+    float: left;
+    padding: 50px;
+    box-sizing: border-box;
+}
+.main-content-collapsed {
+    width: 0%;
+    padding: 0px;
+}
+
+
+.section-summary-on, .main-content-on {
+    background-color:transparent;
+    border: 5px solid transparent;
+    box-sizing: border-box;
+}
+.section-summary-left-on {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.section-summary-right-on {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.section:hover {
+    background-color: #88f;
+    cursor: pointer;
+}
+
+.section-summary-on:hover {
+    background-color: transparent;
+}
+
+.section-details {
+    display: none;
+}
