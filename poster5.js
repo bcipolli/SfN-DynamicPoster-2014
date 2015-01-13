@@ -14,7 +14,7 @@ $(function() {
         var d = title_div.data();
         title_div.append("<div class='spacer logo'><img src='" + d["logo"] + "' /></div>");
         title_div.append("<div class='content'>"
-            + "<div class='title'>" + d["title"] + "</div>"
+            + "<div class='title'><a href='#' style='font-weight: normal; text-decoration: none; color: black'>" + d["title"] + "</a></div>"
             + "<div class='authors'>" + d["authors"] + "</div>"
             + "<div class='affiliations'>" + d["affiliations"] + "</div>"
             + "</div>");
