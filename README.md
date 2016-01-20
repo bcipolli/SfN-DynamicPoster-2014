@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/19765/bcipolli/SfN-DynamicPoster-2014.svg)](https://zenodo.org/badge/latestdoi/19765/bcipolli/SfN-DynamicPoster-2014)
+
 DynamicPoster
 =============
 
